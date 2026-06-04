@@ -200,3 +200,21 @@ Recommended usage:
 
 - https://developers.openai.com/api/docs/models/gpt-image-2
 - https://developers.openai.com/api/docs/guides/image-generation
+
+## Experimental Dual Compare Node
+
+This package also includes an experimental node:
+
+- Node name: `Dual Nano Banana + GPT Image`
+- Category: `POODH/Compare`
+- Outputs:
+  - `nano_images`
+  - `gpt_images`
+  - `comparison` (`nano` on the left, `gpt` on the right)
+  - `metadata`
+
+The node sends the Nano Banana 2 request and the GPT Image 2 request in parallel.
+It reuses the existing `GPT Image 2 AIO` implementation and expects
+`ComfyUI_Nano_Banana` to be installed next to this custom node for Nano Banana 2.
+If one side fails, the other side can still return normally and the error is
+reported in `metadata`.
